@@ -4,7 +4,8 @@
 
 uniform float	uKa, uKd, uKs;	// coefficients of each type of lighting
 uniform float	uShininess;	// specular exponent
-uniform float uNoiseFreq, uNoiseAmp; // two noise variables for the texture
+uniform float   uNoiseFreq; // two noise variables for the texture
+uniform float   uNoiseAmp; 
 uniform sampler3D Noise3; //  tells the shader that a 3D texture will be provided (and bound) at this sampler slot
 
 // interpolated from the vertex shader:
