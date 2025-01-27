@@ -3,12 +3,12 @@ Fragment	pleats.frag
 Program		Pleats					\
 		uA <0.05. 0.05. 0.1>			\
 		uP <.01. 0.05. 1.>			\
-                uNoiseAmp <0. 0. 1.>       / test value for now
-                uNoiseFreq <1. 1. 0.>      / test values for now
+                uNoiseAmp <0. 0. 1.>                    \ 
+                uNoiseFreq <1. 1. 0.3>                 \ 
                 uKa <0. 0.1 1.0>                        \
                 uKd <0. 0.6 1.0>                        \
                 uKs <0. 0.3 1.0>                        \
-                uShininess <10. 50. 100.>                \
+                uShininess <10. 50. 100.>               \
                 uLightX <-20. 5. 20.>                   \
                 uLightY <-20. 10. 20.>                  \
                 uLightZ <-20. 20. 20.> 

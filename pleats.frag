@@ -4,6 +4,8 @@
 
 uniform float	uKa, uKd, uKs;	// coefficients of each type of lighting
 uniform float	uShininess;	// specular exponent
+uniform float uNoiseFreq, uNoiseAmp; // two noise variables for the texture
+uniform sampler3D Noise3; //  tells the shader that a 3D texture will be provided (and bound) at this sampler slot
 
 // interpolated from the vertex shader:
 in  vec2  vST;                  // texture coords
@@ -11,6 +13,8 @@ in  vec3  vN;                   // normal vector
 in  vec3  vL;                   // vector from point to light
 in  vec3  vE;                   // vector from point to eye
 in  vec3  vMC;			// model coordinates
+
+
 
 // for Mac users:
 //	Leave out the #version line, or use 120
@@ -49,13 +53,13 @@ void main( ){
     
     
     //* we are adding the texture to add the two value noise capability*/
-    vec4 nvx = texture(Noise3, uNoiseFreq*vMC);
-    float angx = nvx.r + nvx.g + nvx.b + nvx.a - 2.;   // -1. to +1.
-    angx *= uNoiseAmp;
+    vec4 nvx = texture( Noise3, uNoiseFreq*vMC );
+	float angx = nvx.r + nvx.g + nvx.b + nvx.a  -  2.;	// -1. to +1.
+	angx *= uNoiseAmp;
 
-    vec4 nvy = texture(Noise3, uNoiseFreq*vec3(vMC.xy, vMC.z+0.5));
-    float angy = nvy.r + nvy.g + nvy.b + nvy.a - 2.;
-    angy *= uNoiseAmp;
+    vec4 nvy = texture( Noise3, uNoiseFreq*vec3(vMC.xy,vMC.z+0.5) );
+	float angy = nvy.r + nvy.g + nvy.b + nvy.a  -  2.;	// -1. to +1.
+	angy *= uNoiseAmp;
 
     //* perturb the normal vN*/
     vec3 n = PerturbNormal2(angx, angy, vN);
