@@ -3,6 +3,8 @@ Fragment	pleats.frag
 Program		Pleats					\
 		uA <0.05. 0.05. 0.1>			\
 		uP <.01. 0.05. 1.>			\
+                uNoiseAmp <0. 0. 1.>       / test value for now
+                uNoiseFreq <1. 1. 0.>      / test values for now
                 uKa <0. 0.1 1.0>                        \
                 uKd <0. 0.6 1.0>                        \
                 uKs <0. 0.3 1.0>                        \
